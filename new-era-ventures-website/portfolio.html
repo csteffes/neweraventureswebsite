@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — New Era Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #000000;
+      --white:  #ffffff;
+      --muted:  rgba(255,255,255,0.45);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── Background overlays removed ── */
+
+    /* ── Grain overlay ── */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 300px 300px;
+    }
+
+    /* ── Page shell ── */
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 52px 40px 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 72px;
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+    }
+
+    .back-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover { color: var(--white); }
+
+    .back-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+    }
+
+    /* ── Logo grid — 4 columns (17 companies) ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    /* ── Company card ── */
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 150px;
+      padding: 32px 36px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: background 0.2s ease;
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .card:hover { background: rgba(255,255,255,0.04); }
+
+    /* ── Logo: transparent-bg (white filter) ── */
+    .company-logo {
+      max-width: 120px;
+      max-height: 44px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.72;
+      transition: opacity 0.2s ease;
+      display: block;
+    }
+
+    .card:hover .company-logo { opacity: 1; }
+
+    /* ── Logo: dark-bg (screen blend to white) ── */
+    .company-logo--screen {
+      max-width: 120px;
+      max-height: 44px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(1) brightness(6);
+      mix-blend-mode: screen;
+      opacity: 0.72;
+      transition: opacity 0.2s ease;
+      display: block;
+    }
+
+    .card:hover .company-logo--screen { opacity: 1; }
+
+    /* ── Logo: white-bg with dark logo (invert + screen = transparent white bg) ── */
+    .company-logo--invert {
+      max-width: 120px;
+      max-height: 44px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(1) invert(1) brightness(1.4);
+      mix-blend-mode: screen;
+      opacity: 0.72;
+      transition: opacity 0.2s ease;
+      display: block;
+    }
+
+    .card:hover .company-logo--invert { opacity: 1; }
+
+    /* ── Larger logo variant (for square icons like a37) ── */
+    .company-logo--invert.logo-lg,
+    .company-logo.logo-lg {
+      max-width: 180px;
+      max-height: 64px;
+    }
+
+    /* ── Extra-large logo variant (Mine) ── */
+    .company-logo--invert.logo-xl,
+    .company-logo.logo-xl {
+      max-width: 240px;
+      max-height: 86px;
+    }
+
+    /* ── Smaller logo variant (Textla) ── */
+    .company-logo.logo-sm {
+      max-width: 88px;
+      max-height: 32px;
+    }
+
+    /* ── Logo + text combo layout ── */
+    .logo-combo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-combo .company-logo--invert {
+      max-width: 32px;
+      max-height: 32px;
+    }
+
+    .logo-combo-text {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.72);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .logo-combo-text--silares {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-combo-text--weave {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .card:hover .logo-combo-text { color: rgba(255,255,255,1); }
+
+    /* ── Text-mark fallback ── */
+    .logo-text {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      line-height: 1.4;
+      transition: color 0.2s ease;
+    }
+
+    .card:hover .logo-text { color: rgba(255,255,255,0.9); }
+
+    /* ── Staggered animation delays ── */
+    .card:nth-child(1)  { animation-delay: 0.30s; }
+    .card:nth-child(2)  { animation-delay: 0.37s; }
+    .card:nth-child(3)  { animation-delay: 0.44s; }
+    .card:nth-child(4)  { animation-delay: 0.51s; }
+    .card:nth-child(5)  { animation-delay: 0.58s; }
+    .card:nth-child(6)  { animation-delay: 0.65s; }
+    .card:nth-child(7)  { animation-delay: 0.72s; }
+    .card:nth-child(8)  { animation-delay: 0.79s; }
+    .card:nth-child(9)  { animation-delay: 0.86s; }
+    .card:nth-child(10) { animation-delay: 0.93s; }
+    .card:nth-child(11) { animation-delay: 1.00s; }
+    .card:nth-child(12) { animation-delay: 1.07s; }
+    .card:nth-child(13) { animation-delay: 1.14s; }
+    .card:nth-child(14) { animation-delay: 1.21s; }
+    .card:nth-child(15) { animation-delay: 1.28s; }
+    .card:nth-child(16) { animation-delay: 1.35s; }
+    .card:nth-child(17) { animation-delay: 1.42s; }
+    .card:nth-child(18) { animation-delay: 1.49s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+      .card { height: 130px; padding: 28px 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 36px 20px 60px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      header { margin-bottom: 48px; }
+      .card { height: 110px; padding: 24px 20px; }
+      .company-logo,
+      .company-logo--screen { max-width: 90px; max-height: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <div class="page">
+
+    <header>
+      <a class="back-link" href="index.html">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Home
+      </a>
+    </header>
+
+    <p class="section-label">Portfolio</p>
+
+    <div class="grid">
+
+      <!-- 1. Mercor -->
+      <a class="card" href="https://www.mercor.com/" target="_blank" rel="noopener">
+        <img class="company-logo--invert" src="assets/logos/mercor.png" alt="Mercor" />
+      </a>
+
+      <!-- 2. Valar Atomics -->
+      <a class="card" href="https://www.valaratomics.com/" target="_blank" rel="noopener">
+        <img class="company-logo--invert" src="assets/logos/valar_new.png" alt="Valar Atomics" />
+      </a>
+
+      <!-- 3. Ironsite -->
+      <a class="card" href="https://www.ironsite.ai/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/ironsite.png" alt="Ironsite" />
+      </a>
+
+      <!-- 4. Deepnight -->
+      <a class="card" href="https://deepnight.ai/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/deepnight.webp" alt="Deepnight" />
+      </a>
+
+      <!-- 5. Terac -->
+      <a class="card" href="https://terac.com/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/terac_logo.png" alt="Terac" />
+      </a>
+
+      <!-- 6. a37 -->
+      <a class="card" href="https://www.a37.ai/" target="_blank" rel="noopener">
+        <img class="company-logo logo-lg" src="assets/logos/a37.png" alt="a37" />
+      </a>
+
+      <!-- 7. Textla -->
+      <a class="card" href="https://www.textla.com/" target="_blank" rel="noopener">
+        <img class="company-logo logo-sm" src="assets/logos/textla.svg" alt="Textla" />
+      </a>
+
+      <!-- 8. Silares -->
+      <a class="card" href="https://www.silares.com/" target="_blank" rel="noopener">
+        <div class="logo-combo">
+          <img class="company-logo" src="assets/logos/silares.png" alt="Silares" style="max-width:40px;max-height:40px;" />
+          <span class="logo-combo-text logo-combo-text--silares">Silares</span>
+        </div>
+      </a>
+
+      <!-- 9. Mine -->
+      <a class="card" href="https://www.usemine.com/" target="_blank" rel="noopener">
+        <img class="company-logo logo-xl" src="assets/logos/mine_logo.png" alt="Mine" />
+      </a>
+
+      <!-- 10. Ego -->
+      <a class="card" href="https://www.egoai.com/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/ego.svg" alt="Ego" />
+      </a>
+
+      <!-- 11. Apollo Atomics -->
+      <a class="card" href="https://apolloatomics.com/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/apollo.png" alt="Apollo Atomics" />
+      </a>
+
+      <!-- 12. Weave -->
+      <a class="card" href="https://www.weave.gl/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/weave_brand.png" alt="Weave" style="max-width:180px;max-height:60px;" />
+      </a>
+
+      <!-- 13. Goblins -->
+      <a class="card" href="https://www.goblinsapp.com/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/goblins.webp" alt="Goblins" />
+      </a>
+
+      <!-- 14. Superscript -->
+      <a class="card" href="https://www.superscript.nyc/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/superscript.svg" alt="Superscript" />
+      </a>
+
+      <!-- 15. CRABI Robotics -->
+      <a class="card" href="https://www.crabi-robotics.com/" target="_blank" rel="noopener">
+        <div class="logo-combo">
+          <img class="company-logo" src="assets/logos/crabi.svg" alt="CRABI Robotics" style="max-width:32px;max-height:32px;" />
+          <span class="logo-combo-text logo-combo-text--weave">CRABI</span>
+        </div>
+      </a>
+
+      <!-- 16. Taxwire -->
+      <a class="card" href="https://www.taxwire.com/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/taxwire.svg" alt="Taxwire" />
+      </a>
+
+      <!-- 17. Flyby Robotics -->
+      <a class="card" href="https://www.flybyrobotics.com/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/flyby.svg" alt="Flyby Robotics" />
+      </a>
+
+      <!-- 18. SubHub -->
+      <a class="card" href="https://www.subhub.io/" target="_blank" rel="noopener">
+        <img class="company-logo" src="assets/logos/subhub.svg" alt="SubHub" />
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
