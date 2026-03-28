@@ -104,7 +104,7 @@
       animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
     }
 
-    /* ── Logo grid — 4 columns (17 companies) ── */
+    /* ── Logo grid — 4 columns (18 companies) ── */
     .grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -265,6 +265,7 @@
     .card:nth-child(15) { animation-delay: 1.28s; }
     .card:nth-child(16) { animation-delay: 1.35s; }
     .card:nth-child(17) { animation-delay: 1.42s; }
+    .card:nth-child(18) { animation-delay: 1.49s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(10px); }
@@ -373,7 +374,15 @@
         <img class="company-logo logo-sm" src="/assets/logos/textla.svg" alt="Textla" />
       </a>
 
-      <!-- 8. Mine -->
+      <!-- 8. Silares -->
+      <a class="card" href="https://www.silares.com/" target="_blank" rel="noopener">
+        <div class="logo-combo">
+          <img class="company-logo" src="/assets/logos/silares.png" alt="Silares" style="max-width:40px;max-height:40px;" />
+          <span class="logo-combo-text logo-combo-text--silares">Silares</span>
+        </div>
+      </a>
+
+      <!-- 9. Mine -->
       <a class="card" href="https://www.usemine.com/" target="_blank" rel="noopener">
         <img class="company-logo logo-xl" src="/assets/logos/mine_logo.png" alt="Mine" />
       </a>
