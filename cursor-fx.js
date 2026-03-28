@@ -4,9 +4,9 @@
 (function () {
   // ── Tunable constants ──
   const ORB_RADIUS = 10;
-  const ORB_OPACITY = 0.3;
+  const ORB_OPACITY = 0.2;
   const GLOW_RADIUS = 30;
-  const GLOW_OPACITY = 0.06;
+  const GLOW_OPACITY = 0.04;
   const LERP = 0.13;                // magnetic lag (lower = more floaty)
   const MAX_PARTICLES = 120;
   const EMIT_PER_FRAME = 3;         // particles emitted per frame while moving
@@ -179,7 +179,7 @@
       var radius = p.r * (0.3 + 0.7 * age);
 
       // Draw particle
-      var finalAlpha = alpha * 0.55 * sparkleBoost;
+      var finalAlpha = alpha * 0.35 * sparkleBoost;
       var b = p.brightness;
       ctx.beginPath();
       ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
@@ -190,7 +190,7 @@
       if (radius > 1.8 && finalAlpha > 0.25) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, radius * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,255,255,' + (finalAlpha * 0.08) + ')';
+        ctx.fillStyle = 'rgba(255,255,255,' + (finalAlpha * 0.05) + ')';
         ctx.fill();
       }
     }
