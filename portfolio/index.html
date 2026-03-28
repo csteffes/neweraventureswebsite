@@ -35,8 +35,6 @@
       color: var(--white);
       font-family: 'Space Grotesk', system-ui, sans-serif;
     }
-    html { cursor: crosshair; }
-    a, button { cursor: pointer; }
     body {
       opacity: 0;
       animation: pageIn 0.07s ease forwards;
@@ -470,6 +468,7 @@
 
   </div><!-- .overflow-clip -->
 
+  <script src="/cursor-fx.js"></script>
   <script>
     document.querySelectorAll('a:not([target="_blank"])').forEach(a => {
       a.addEventListener('click', e => {

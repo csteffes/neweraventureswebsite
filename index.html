@@ -30,9 +30,7 @@
       height: 100%;
       background: var(--bg);
       overflow-x: hidden;
-      cursor: crosshair;
     }
-    a, button { cursor: pointer; }
 
     body {
       height: 100%;
@@ -231,6 +229,7 @@
   </main>
 
   <script src="wave-bg.js"></script>
+  <script src="cursor-fx.js"></script>
   <script>
     document.querySelectorAll('a:not([target="_blank"])').forEach(a => {
       a.addEventListener('click', e => {
