@@ -6,7 +6,7 @@
   <meta name="google" content="notranslate" />
   <meta http-equiv="Content-Language" content="en" />
   <title>Portfolio — New Era Ventures</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <meta name="description" content="Portfolio — New Era Ventures, early-stage venture firm." />
   <meta property="og:title" content="Portfolio — New Era Ventures" />
   <meta property="og:description" content="Early-stage venture firm." />
@@ -39,15 +39,17 @@
     a, button { cursor: pointer; }
     body {
       opacity: 0;
-      animation: pageIn 0.4s ease forwards;
+      animation: pageIn 0.15s ease forwards;
     }
     body.fade-out {
       opacity: 0 !important;
+      transform: scale(1.02);
       animation: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.12s ease, transform 0.12s ease;
     }
     @keyframes pageIn {
-      to { opacity: 1; }
+      from { opacity: 0; transform: scale(0.98); }
+      to   { opacity: 1; transform: scale(1); }
     }
 
     /* ── Background overlays removed ── */
@@ -474,7 +476,7 @@
         e.preventDefault();
         const href = a.href;
         document.body.classList.add('fade-out');
-        setTimeout(() => window.location = href, 300);
+        setTimeout(() => window.location = href, 120);
       });
     });
   </script>
