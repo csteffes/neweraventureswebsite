@@ -41,16 +41,16 @@
       font-family: 'Space Grotesk', system-ui, sans-serif;
       overflow: hidden;
       opacity: 0;
-      animation: pageIn 0.15s ease forwards;
+      animation: pageIn 0.07s ease forwards;
     }
     body.fade-out {
       opacity: 0 !important;
-      transform: scale(1.02);
+      transform: scale(1.01);
       animation: none;
-      transition: opacity 0.12s ease, transform 0.12s ease;
+      transition: opacity 0.05s ease, transform 0.05s ease;
     }
     @keyframes pageIn {
-      from { opacity: 0; transform: scale(0.98); }
+      from { opacity: 0; transform: scale(0.99); }
       to   { opacity: 1; transform: scale(1); }
     }
 
@@ -237,7 +237,7 @@
         e.preventDefault();
         const href = a.href;
         document.body.classList.add('fade-out');
-        setTimeout(() => window.location = href, 120);
+        setTimeout(() => window.location = href, 50);
       });
     });
   </script>
