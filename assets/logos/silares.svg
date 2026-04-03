@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left triangle -->
+  <polygon points="120,40 40,360 200,360" fill="white"/>
+  <!-- Right triangle -->
+  <polygon points="220,40 140,360 300,360" fill="white"/>
+  <!-- SILARES text -->
+  <text x="380" y="280" font-family="Arial, sans-serif" font-size="280" font-weight="bold" fill="white" letter-spacing="8">SILARES</text>
+</svg>
