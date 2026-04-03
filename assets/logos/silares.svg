@@ -1,8 +1,24 @@
-<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- Left triangle -->
-  <polygon points="120,40 40,360 200,360" fill="white"/>
-  <!-- Right triangle -->
-  <polygon points="220,40 140,360 300,360" fill="white"/>
-  <!-- SILARES text -->
-  <text x="380" y="280" font-family="Arial, sans-serif" font-size="280" font-weight="bold" fill="white" letter-spacing="8">SILARES</text>
+<svg viewBox="0 0 490 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Geometric bolt icon -->
+  <polygon points="28,5 8,55 28,55" fill="black"/>
+  <polygon points="38,5 18,55 38,55" fill="black"/>
+  <polygon points="28,65 8,115 28,115" fill="black"/>
+  <polygon points="38,65 18,115 38,115" fill="black"/>
+  <!-- SILARES text as paths for reliable rendering -->
+  <g fill="black">
+    <!-- S -->
+    <path d="M75,35 Q75,25 85,25 L105,25 Q115,25 115,35 L115,40 L105,40 L105,35 Q105,33 103,33 L87,33 Q85,33 85,35 L85,55 Q85,57 87,57 L103,57 Q105,57 105,55 L105,50 L95,50 L95,43 L115,43 L115,55 Q115,65 105,65 L85,65 Q75,65 75,55 Z"/>
+    <!-- I -->
+    <rect x="125" y="25" width="10" height="40"/>
+    <!-- L -->
+    <path d="M145,25 L155,25 L155,57 L175,57 L175,65 L145,65 Z"/>
+    <!-- A -->
+    <path d="M185,65 L195,25 L215,25 L225,65 L215,65 L212,55 L198,55 L195,65 Z M200,47 L210,47 L205,30 Z"/>
+    <!-- R -->
+    <path d="M235,25 L265,25 Q275,25 275,35 L275,42 Q275,48 268,50 L278,65 L267,65 L258,50 L245,50 L245,65 L235,65 Z M245,33 L245,43 L263,43 Q265,43 265,41 L265,35 Q265,33 263,33 Z"/>
+    <!-- E -->
+    <path d="M285,25 L320,25 L320,33 L295,33 L295,41 L315,41 L315,49 L295,49 L295,57 L320,57 L320,65 L285,65 Z"/>
+    <!-- S -->
+    <path d="M330,35 Q330,25 340,25 L360,25 Q370,25 370,35 L370,40 L360,40 L360,35 Q360,33 358,33 L342,33 Q340,33 340,35 L340,55 Q340,57 342,57 L358,57 Q360,57 360,55 L360,50 L350,50 L350,43 L370,43 L370,55 Q370,65 360,65 L340,65 Q330,65 330,55 Z"/>
+  </g>
 </svg>
