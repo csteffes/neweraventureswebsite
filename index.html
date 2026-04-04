@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" content="notranslate" />
   <meta http-equiv="Content-Language" content="en" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>New Era Ventures</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <meta name="description" content="New Era Ventures — early-stage venture firm." />
@@ -150,7 +151,7 @@
     <nav>
       <a href="/portfolio">Portfolio</a>
       <div class="nav-dot"></div>
-      <a href="https://lp.neweraventures.com/" target="_blank" rel="noopener">LP Portal</a>
+      <a href="https://lp.neweraventures.com/" target="_blank" rel="noopener noreferrer">LP Portal</a>
     </nav>
 
     <!-- US Flag — black & white, centered below nav -->
@@ -229,15 +230,6 @@
 
   <script src="wave-bg.js"></script>
   <script src="cursor-fx.js"></script>
-  <script>
-    document.querySelectorAll('a:not([target="_blank"])').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const href = a.href;
-        document.body.classList.add('fade-out');
-        setTimeout(() => window.location = href, 50);
-      });
-    });
-  </script>
+  <script src="nav-fx.js"></script>
 </body>
 </html>
