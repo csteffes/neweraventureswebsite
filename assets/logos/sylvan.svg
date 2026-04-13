@@ -1,11 +1,18 @@
-<svg viewBox="0 0 108 32" xmlns="http://www.w3.org/2000/svg">
-  <!-- Pine tree icon (stylized: narrow upper triangle + wider lower triangle + trunk) -->
-  <!-- Upper arrow/point -->
-  <polygon points="10.5,1 7.2,10 13.8,10" fill="black"/>
-  <!-- Lower wider triangle (branches) -->
-  <polygon points="10.5,6.5 3.5,22 17.5,22" fill="black"/>
-  <!-- Trunk -->
-  <rect x="8.75" y="22" width="3.5" height="5" rx="0.6" fill="black"/>
-  <!-- "sylvan" wordmark -->
-  <text x="25" y="23.5" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="500" fill="black" letter-spacing="-0.2">sylvan</text>
+<svg viewBox="0 0 108 30" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="black" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="1.9">
+    <!-- Trunk: full vertical spine -->
+    <line x1="11" y1="1.5" x2="11" y2="27.5"/>
+    <!-- Upper left branch: sweeps from trunk outward and slightly down -->
+    <path d="M11,8.5 Q7.5,9.5 4,12"/>
+    <!-- Upper right branch -->
+    <path d="M11,8.5 Q14.5,9.5 18,12"/>
+    <!-- Lower left branch: wider sweep -->
+    <path d="M11,15.5 Q6,17 2,19.5"/>
+    <!-- Lower right branch -->
+    <path d="M11,15.5 Q16,17 20,19.5"/>
+  </g>
+  <!-- "sylvan" wordmark — Inter/system sans-serif, regular weight -->
+  <text x="26.5" y="22"
+    font-family="Inter,-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="16" font-weight="400" fill="black" letter-spacing="-0.2">sylvan</text>
 </svg>
