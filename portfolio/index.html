@@ -269,7 +269,19 @@
       font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       font-weight: 400;
       letter-spacing: -0.005em;
-      font-size: 19px;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    /* Forge combo: tighter gap, vertical alignment for visual balance */
+    .logo-combo--forge {
+      gap: 8px;
+    }
+    .logo-combo--forge .company-logo {
+      max-width: 30px !important;
+      max-height: 30px !important;
+      position: relative;
+      top: -1px; /* optical centering — square icon vs lowercase x-height */
     }
 
     .card:hover .logo-combo-text { color: rgba(255,255,255,1); }
@@ -388,6 +400,11 @@
       }
       .logo-combo-text { font-size: 14px; }
       .logo-text--engram { font-size: 17px; letter-spacing: 0.13em; }
+      .logo-combo-text--forge { font-size: 18px; }
+      .logo-combo--forge .company-logo {
+        max-width: 22px !important;
+        max-height: 22px !important;
+      }
     }
   </style>
 </head>
@@ -437,8 +454,8 @@
 
       <!-- 6. Forge -->
       <a class="card" href="https://www.forge.ai/" target="_blank" rel="noopener">
-        <div class="logo-combo">
-          <img class="company-logo" src="/assets/logos/forge.svg" alt="Forge" style="max-width:24px;max-height:24px;" />
+        <div class="logo-combo logo-combo--forge">
+          <img class="company-logo" src="/assets/logos/forge.svg" alt="Forge" />
           <span class="logo-combo-text logo-combo-text--forge">Forge</span>
         </div>
       </a>
