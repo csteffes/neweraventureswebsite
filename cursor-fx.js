@@ -4,9 +4,9 @@
 (function () {
   // ── Tunable constants ──
   const ORB_RADIUS = 10;
-  const ORB_OPACITY = 0.15;
+  const ORB_OPACITY = 0.075;
   const GLOW_RADIUS = 30;
-  const GLOW_OPACITY = 0.03;
+  const GLOW_OPACITY = 0.015;
   const LERP = 0.13;                // magnetic lag (lower = more floaty)
   const MAX_PARTICLES = 120;
   const EMIT_PER_FRAME = 3;         // particles emitted per frame while moving
@@ -15,7 +15,7 @@
   const PARTICLE_MAX_R = 3.0;
   const TRAIL_SPREAD = 1.2;         // lateral scatter
   const DRIFT_DECAY = 0.96;         // velocity damping per frame
-  const SPARKLE_CHANCE = 0.11;      // chance a particle "twinkles"
+  const SPARKLE_CHANCE = 0.055;     // chance a particle "twinkles"
 
   // ── State ──
   let mx = -100, my = -100;         // actual mouse
@@ -179,7 +179,7 @@
       var radius = p.r * (0.3 + 0.7 * age);
 
       // Draw particle
-      var finalAlpha = alpha * 0.35 * sparkleBoost;
+      var finalAlpha = alpha * 0.175 * sparkleBoost;
       var b = p.brightness;
       ctx.beginPath();
       ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
