@@ -8,8 +8,8 @@
   const GLOW_RADIUS = 30;
   const GLOW_OPACITY = 0.015;
   const LERP = 0.13;                // magnetic lag (lower = more floaty)
-  const MAX_PARTICLES = 120;
-  const EMIT_PER_FRAME = 3;         // particles emitted per frame while moving
+  const MAX_PARTICLES = 70;         // was 120 — perf
+  const EMIT_PER_FRAME = 2;         // was 3 — perf
   const PARTICLE_LIFE = 50;         // frames
   const PARTICLE_MIN_R = 0.8;
   const PARTICLE_MAX_R = 3.0;
@@ -36,6 +36,11 @@
   // ── Accessibility: respect reduced motion ──
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  // ── Low-end hardware: skip entirely ──
+  // (fewer than 4 logical cores OR less than 4GB RAM if reported)
+  if ((navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4)
+      || (navigator.deviceMemory && navigator.deviceMemory < 4)) return;
+
   // ── Create canvas ──
   canvas = document.createElement('canvas');
   canvas.id = 'cursor-fx';
@@ -46,7 +51,8 @@
   function resize() {
     W = window.innerWidth;
     H = window.innerHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Cap DPR at 1.5 (was 2) — small particles look fine, big perf gain on Retina
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     canvas.width = W * dpr;
     canvas.height = H * dpr;
     canvas.style.width = W + 'px';
