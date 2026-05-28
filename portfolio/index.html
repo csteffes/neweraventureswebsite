@@ -189,6 +189,20 @@
 
     .card:hover .company-logo--screen { opacity: 1; }
 
+    /* ── Logo: pre-processed (used as-is, no color filter — preserves 3D/gradient) ── */
+    .company-logo--raw {
+      max-width: 120px;
+      max-height: 44px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.88;
+      transition: opacity 0.2s ease;
+      display: block;
+    }
+
+    .card:hover .company-logo--raw { opacity: 1; }
+
     /* ── Logo: white-bg with dark logo (invert + screen = transparent white bg) ── */
     .company-logo--invert {
       max-width: 120px;
@@ -374,6 +388,7 @@
       .company-logo,
       .company-logo--screen,
       .company-logo--invert,
+      .company-logo--raw,
       .company-logo.logo-lg,
       .company-logo.logo-xl,
       .company-logo.logo-sm,
@@ -400,8 +415,8 @@
         max-height: 52px !important;
       }
       .card img[alt="Kindo"] {
-        max-width: 150px !important;
-        max-height: 32px !important;
+        max-width: 130px !important;
+        max-height: 28px !important;
       }
       .logo-combo-text { font-size: 14px; }
       .logo-text--engram { font-size: 17px; letter-spacing: 0.13em; }
@@ -477,7 +492,7 @@
 
       <!-- 9. Kindo -->
       <a class="card" href="https://www.kindo.ai/" target="_blank" rel="noopener">
-        <img class="company-logo" src="/assets/logos/kindo.png" alt="Kindo" style="max-width:175px;max-height:38px;" />
+        <img class="company-logo--raw" src="/assets/logos/kindo.png" alt="Kindo" style="max-width:150px;max-height:32px;" />
       </a>
 
       <!-- 10. Engram -->
