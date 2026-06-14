@@ -12,9 +12,12 @@
   <meta property="og:title" content="New Era Ventures" />
   <meta property="og:description" content="Early-stage venture firm." />
   <meta property="og:image" content="https://www.neweraventures.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://www.neweraventures.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.neweraventures.com/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -82,7 +85,8 @@
     /* ── Logo ── */
     .logo {
       width: min(45vw, 460px);
-      filter: brightness(0) invert(1);
+      height: auto;
+      color: var(--fg);              /* SVG uses currentColor — no raster filter */
       opacity: 0;
       animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) 80ms forwards;
     }
@@ -172,7 +176,7 @@
   <div class="grain"></div>
 
   <main class="page">
-    <img class="logo" src="assets/logo.png" alt="New Era Ventures" />
+    <img class="logo" src="assets/logo.svg" width="460" height="129" alt="New Era Ventures" />
 
     <nav>
       <a href="/portfolio">Portfolio</a>
