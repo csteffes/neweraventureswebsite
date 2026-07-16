@@ -344,6 +344,20 @@
     }
     .card:hover .logo-text--engram { color: rgba(255,255,255,1); }
 
+    /* ── Olive wordmark — bold sans-serif, matches supplied brand asset ── */
+    .logo-text--olive {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      text-align: center;
+      line-height: 1;
+      transition: color 0.2s ease;
+    }
+    .card:hover .logo-text--olive { color: rgba(255,255,255,1); }
+
     /* ── Staggered animation delays ── */
     .card:nth-child(1)  { animation-delay: 0.30s; }
     .card:nth-child(2)  { animation-delay: 0.37s; }
@@ -365,6 +379,7 @@
     .card:nth-child(18) { animation-delay: 1.49s; }
     .card:nth-child(19) { animation-delay: 1.56s; }
     .card:nth-child(20) { animation-delay: 1.63s; }
+    .card:nth-child(21) { animation-delay: 1.70s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(10px); }
@@ -435,6 +450,7 @@
       }
       .logo-combo-text { font-size: 14px; }
       .logo-text--engram { font-size: 17px; letter-spacing: 0.13em; }
+      .logo-text--olive { font-size: 22px; }
       .logo-combo-text--forge { font-size: 21px; }
       .logo-combo--forge .company-logo {
         max-width: 26px !important;
@@ -574,6 +590,11 @@
           <img class="company-logo" src="/assets/logos/subhub.svg" alt="SubHub" />
           <span class="logo-combo-text logo-combo-text--subhub">SubHub</span>
         </div>
+      </a>
+
+      <!-- 21. Olive -->
+      <a class="card" href="https://www.linkedin.com/in/roberthinsdalesnyder/" target="_blank" rel="noopener">
+        <span class="logo-text logo-text--olive">Olive</span>
       </a>
 
     </div>
