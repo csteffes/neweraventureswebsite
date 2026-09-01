@@ -303,18 +303,25 @@
     }
     .card:hover .logo-combo-text--subhub { color: rgba(255,255,255,1); }
 
-    .logo-combo-text--andean {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      font-size: 21px;
-      line-height: 1;
+    /* Andean — mark stacked above the wordmark.
+       Their brand face is Paralucent (commercial, not embeddable); its own
+       declared fallback is Arial, so the Helvetica/Arial stack matches. */
+    .logo-combo--andean {
+      flex-direction: column;
+      gap: 9px;
     }
-
-    .logo-combo--andean { gap: 11px; }
     .logo-combo--andean .company-logo {
-      max-width: 48px !important;
-      max-height: 26px !important;
+      max-width: 46px !important;
+      max-height: 25px !important;
+    }
+    .logo-combo-text--andean {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
     }
     .card:hover .logo-combo-text--andean { color: rgba(255,255,255,1); }
 
@@ -478,7 +485,11 @@
         max-height: 26px !important;
       }
       .logo-combo-text--subhub { font-size: 17px; }
-      .logo-combo-text--andean { font-size: 16px; }
+      .logo-combo-text--andean { font-size: 11px; letter-spacing: 0.05em; }
+      .logo-combo--andean {
+        flex-direction: column;
+        gap: 7px;
+      }
       .logo-combo--andean .company-logo {
         max-width: 38px !important;
         max-height: 21px !important;
@@ -560,8 +571,8 @@
       <!-- 10. Andean -->
       <a class="card" href="https://www.andean.systems/" target="_blank" rel="noopener">
         <div class="logo-combo logo-combo--andean">
-          <img class="company-logo" src="/assets/logos/andean.svg" alt="Andean" />
-          <span class="logo-combo-text logo-combo-text--andean">Andean</span>
+          <img class="company-logo" src="/assets/logos/andean.svg" alt="Andean Systems" />
+          <span class="logo-combo-text logo-combo-text--andean">Andean Systems</span>
         </div>
       </a>
 
